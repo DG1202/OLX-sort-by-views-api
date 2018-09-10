@@ -55,7 +55,6 @@ app.get(/api/,(req, res)=>{
     });
 
     Promise.all(PromiseList).then(viewsCount => {
-      console.log('VIEWS COUNT')
       for (let i = 0;i < viewsCount.length;i++){
         result[i].views = getViewsCount(viewsCount[i])
       }
