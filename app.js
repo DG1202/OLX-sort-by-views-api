@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const request = require('request-promise');
+const fs = require('fs');
 const app = express();
 
 const options = {
@@ -33,6 +34,10 @@ const parse = text => {
   }
   return result
 };
+
+app.get('/', (req, res) => {
+  res.end(fs.readFileSync('./index.html'))
+})
 
 app.get(/api/,(req, res)=>{
   const PromiseItemsList = [];
