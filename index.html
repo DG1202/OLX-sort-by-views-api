@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Olx sorting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="list.js">
+</head>
+<body>
+
+<div class="page">
+    <div class="header">
+        <div class="search">
+            <form id="search">
+                <input id = "search-inp"  name="s" placeholder="Пошук на OLX" type="search" >
+                <input id ="pages-inp" type="number">
+                <button id = "searchButtom"  onclick="displayResult()">Знайти</button>
+            </form>
+        </div>
+    </div>
+    <script src="list.js"></script>
+    <main>
+        <div id="tab">
+            <div style="flex-grow: 10 ; text-align: left; padding-left: 10px" class="section">
+                <p>${responsArray[i].name}</p>
+            </div>
+            <div style="flex-grow: 1" class="section">
+                <a href=${responseArray[i].url}>Лінк</a>
+            </div>
+            <div style="flex-grow: 1" class="section">
+                <p>${responseArray[i].views}</p>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
