@@ -20,13 +20,14 @@
   
 function displayResult() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let searchValue = document.getElementById("search-inp").value;
-            let pagesValue = document.getElementById("pages-inp").value; 
+            let pagesValue = document.getElementById("pages-inp").value;
             myFunction(serchResponseJson);
         }
     };
-    xhttp.open("GET",  "/api?uri= "+ searchValue +"&pages="+ pagesValue , true);
+    xhttp.open("GET", "/api?uri= " + searchValue + "&pages=" + pagesValue, true);
     xmlhttp.send();
-    } 
+}
+document.getElementById("searchButtom").onclick =displayResult();
