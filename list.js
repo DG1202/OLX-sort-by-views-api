@@ -30,4 +30,4 @@ function displayResult() {
     xhttp.open("GET", "/api?uri= " + searchValue + "&pages=" + pagesValue, true);
     xmlhttp.send();
 }
-document.getElementById("searchButtom").onclick =displayResult();
+document.getElementById("searchButtom").onclick = displayResult();
