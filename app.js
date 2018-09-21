@@ -3,7 +3,7 @@ const express = require('express');
 const request = require('request-promise');
 const fs = require('fs');
 const app = express();
-
+app.use(express.static("stat"))
 const options = {
   method: 'GET',
   headers:{
@@ -15,7 +15,7 @@ const options = {
     'cache-control': 'max-age=0',
   }
 };
-
+app.use(express.static("stat"))
 const getViewsCount = text => {
   const start = text.indexOf('<div class="pdingtop10">')+ 2;
   return text.substring(text.indexOf(('<strong>') , start) + 8 , text.indexOf('</strong>', start ));
