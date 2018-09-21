@@ -1,8 +1,4 @@
 
-    // let serchResponseJson = this.responseText;
-    // let searchValue = document.getElementById("search-inp").value;
-    // let pagesValue = document.getElementById("pages-inp").value;
-
     function myFunction(serchResponseJson) {
     const responseArray = JSON.parse(serchResponseJson);
     let table;  
