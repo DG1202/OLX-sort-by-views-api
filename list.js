@@ -1,3 +1,8 @@
+
+    // let serchResponseJson = this.responseText;
+    // let searchValue = document.getElementById("search-inp").value;
+    // let pagesValue = document.getElementById("pages-inp").value;
+
     function myFunction(serchResponseJson) {
     const responseArray = JSON.parse(serchResponseJson);
     let table;  
@@ -19,14 +24,15 @@
 }
   
 function displayResult() {
+    let searchValue = document.getElementById("search-inp").value;
+    let pagesValue = document.getElementById("pages-inp").value;
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let searchValue = document.getElementById("search-inp").value;
-            let pagesValue = document.getElementById("pages-inp").value;
-            myFunction(serchResponseJson);
+        if (this.readyState == 4 && this.status == 200){
+            myFunction(this.responseText);
         }
     };
+
     xmlhttp.open("GET", "/api?uri= " + searchValue + "&pages=" + pagesValue, true);
     xmlhttp.send();
 }
