@@ -1,24 +1,24 @@
 
-    function myFunction(serchResponseJson) {
+function myFunction(serchResponseJson) {
     const responseArray = JSON.parse(serchResponseJson);
     let table = "";
-    for (let i = 0; i < responseArray.length; i++) { 
-    table +=
-     `<div id="tab">
-           <div style="flex-grow: 10 ; text-align: left; padding-left: 10px" class="section">
-           <p>${responsArray[i].name}</p>
+    for (let i = 0; i < responseArray.length; i++) {
+        table +=
+            `<div class="tab">
+           <div class="section">
+           <p>${i + 1}</p>
             </div>
-           <div style="flex-grow: 1" class="section">
-           <a href="${responseArray[i].url}">Лінк</a>
+           <div class="section">
+           <p><a href="${responseArray[i].url}" target="_blank">${responseArray[i].name}</a></p>
            </div>
-           <div style="flex-grow: 1" class="section">
+           <div class="section">
             <p>${responseArray[i].views}</p>
-           </div>           
+           </div>
        </div>`
-  }
-  document.getElementById("table").innerHTML = table;
+    }
+    document.getElementById("table").innerHTML = table;
 }
-  
+
 function displayResult() {
     let searchValue = document.getElementById("search-inp").value;
     let pagesValue = document.getElementById("pages-inp").value;

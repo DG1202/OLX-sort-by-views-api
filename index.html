@@ -3,96 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Olx sorting</title>
-    <!--<link rel="stylesheet" href="css/style.css">-->
-        <style>
-        body{
-            background-image: url("background.jpg");
-            margin: 0;
-            padding: 0;
-        }
-        .page{
-            display: flex;
-            flex-direction: column;
+    <link rel="stylesheet" href="style.css">
 
-        }
-        .header{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 25px;
-        }
-
-        #search{
-            background-color: #c9c9c9;
-            border: 3px solid #89bdd3;
-            border-radius: 25px;
-            padding: 30px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 900px;
-        }
-        #search-inp{
-            width: 500px;
-            height: 60px;
-            border-color: #89bdd3;
-            border-radius: 15px;
-
-        }
-        #pages-inp{
-            width: 80px;
-            height: 54px;
-            border-color: #89bdd3;
-            border-radius: 15px;
-            text-align: center;
-
-        }
-        #searchButton{
-            width: 80px;
-            height: 60px;
-            border-color: #89bdd3;
-            border-radius: 15px;
-        }
-        #table{
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-        }
-        .tab {
-            display: flex;
-            margin: 0 25px;
-        }
-        .tab div {
-            min-height: 1.6em;
-            width: 50%;  /* 50 * 3 = 150% (содержимое flex-контейнера в 1,5 раза больше) */
-
-        }
-        .tab div:nth-child(1) {
-            flex: 0 0 auto;
-            text-align: left;
-            padding-left: 10px;
-            background-color: #e3e3e3;
-            border: 0.5px solid #89bdd3;
-
-        }
-        .tab div:nth-child(2) {
-            flex: 0 5 auto;
-            text-align: center;
-            background-color: #e3e3e3;
-            border: 0.5px solid #89bdd3;
-            max-width: 100px;
-}
-.tab div:nth-child(3) {
-    flex: 0 5 auto;
-    text-align: center;
-    background-color: #e3e3e3;
-    border: 0.5px solid #89bdd3;
-    max-width: 100px;
-
-}
-
-</style>
 </head>
 <body>
 
@@ -101,59 +13,24 @@
         <div class="search">
             <div id="search">
             <form>
-                <input id = "search-inp"  name="s" placeholder="Пошук на OLX" type="text" >
+                <input id = "search-inp"  name="s" placeholder="Пошук товарів на OLX              " type="text" >
                 <input id ="pages-inp" type="number">
             </form>
-            <button id = "searchButton">Знайти</button>
+            <img id = "searchButton" src="search.png" alt="">
             </div>
             </div>
     </div>
-    <script>
-        function myFunction(serchResponseJson) {
-        const responseArray = JSON.parse(serchResponseJson);
-        let table = "";
-        for (let i = 0; i < responseArray.length; i++) {
-            table +=
-                `<div class="tab">
-           <div class="section">
-           <p>${responseArray[i].name}</p>
-            </div>
-           <div class="section">
-           <a href="${responseArray[i].url} target="_blank"">Лінк</a>
-           </div>
-           <div class="section">
-            <p>${responseArray[i].views}</p>
-           </div>
-       </div>`
-        }
-        document.getElementById("table").innerHTML = table;
-    }
-
-    function displayResult() {
-        let searchValue = document.getElementById("search-inp").value;
-        let pagesValue = document.getElementById("pages-inp").value;
-        let xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200){
-                myFunction(this.responseText);
-            }
-        };
-
-        xmlhttp.open("GET", "/api?uri= " + searchValue + "&pages=" + pagesValue, true);
-        xmlhttp.send();
-    }
-    document.getElementById("searchButton").onclick = displayResult;
-    </script>
+    <script src="list.js"></script>
     <main>
         <div id="table">
-        <!--<div id="tab">-->
-            <!--<div style="flex-grow: 10 ; text-align: left; padding-left: 10px" class="section">-->
+        <!--<div class="tab">-->
+            <!--<div class="section">-->
                 <!--<p>${responsArray[i].name}</p>-->
             <!--</div>-->
-            <!--<div style="flex-grow: 1" class="section">-->
+            <!--<div class="section">-->
                 <!--<a href=${responseArray[i].url}>Лінк</a>-->
             <!--</div>-->
-            <!--<div style="flex-grow: 1" class="section">-->
+            <!--<div class="section">-->
                 <!--<p>${responseArray[i].views}</p>-->
             <!--</div>-->
         <!--</div>-->

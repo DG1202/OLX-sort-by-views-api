@@ -92,7 +92,7 @@ app.get(/api/,(req, res)=>{
 
         const obj = Object.assign({uri:uri}, options);
 
-        PromiseItemsList.push(request(obj).then(data => parse(data)))
+        PromiseItemsList.push(request(obj).then(data => parse(data)).catch(err => console.log(err)))
 
     }
 
@@ -114,7 +114,7 @@ app.get(/api/,(req, res)=>{
 
         result.forEach(item=>{
 
-            PromiseList.push(request(Object.assign({uri:item.url}, options)))
+            PromiseList.push(request(Object.assign({uri:item.url}, options)).catch(err => console.log(err)))
 
         });
 
@@ -141,4 +141,3 @@ app.get(/api/,(req, res)=>{
 
 
 app.listen(3000);
-

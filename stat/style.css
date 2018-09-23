@@ -1,65 +1,106 @@
 
+@import url('https://fonts.googleapis.com/css?family=Gabriela');
+
+
 body{
-    background-color: #9ad3de;
+    background-image: url("background.jpg");
     margin: 0;
     padding: 0;
 }
 .page{
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
 }
 .header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
 }
 
-.search{
-    background-color: #c9c9c9;
+#search{
     border: 3px solid #89bdd3;
     border-radius: 25px;
-    padding: 30px;
+    padding: 10px 30px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    width: 900px;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-wrap: nowrap;
 }
 #search-inp{
-    width: 500px;
-    height: 60px;
     border-color: #89bdd3;
     border-radius: 15px;
+    font-family: 'Gabriela', serif;
+    padding-left: 20px;
+    font-size: 20px;
+
 
 }
 #pages-inp{
     width: 80px;
-    height: 54px;
     border-color: #89bdd3;
     border-radius: 15px;
     text-align: center;
-    
+    font-size: 20px;
+    font-family: 'Gabriela', serif;
 }
 #searchButton{
-  width: 80px;
+    width: 60px;
     height: 60px;
-    border-color: #89bdd3;
-    border-radius: 15px;  
+    margin-left: 10px;
 }
-#tab{
-  display: flex;
-  margin: 0 25px;        
-      
-       
+#searchButton:active {
+   filter: grayscale(60%);
 }
-#tab > div{
-    line-height: 15px;
-    background-color: #e3e3e3; 
+main{
+    display: flex;
+    justify-content: center;
+}
+#table{
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+    width: 100%;
+}
+
+.tab {
+    display: flex;
     text-align: center;
-    border: 0.5px solid #89bdd3;    
+    background-color: white;
+    border: 0.5px solid #89bdd3;
 }
-
-
+.tab div {
+    height: 2.8em;
+    width: 90%;
+}
+.tab div:nth-child(1) {
+    flex: 1;
+    text-align: center;
+    background-color: white;
+    border: 0.5px solid #89bdd3;
+    font-family: 'Gabriela', serif;
+}
+.tab div:nth-child(2) {
+    flex: 10;
+    text-align: left;
+    padding-left: 15px;
+    background-color: white;
+    border: 0.5px solid #89bdd3;
+    font-family: 'Gabriela', serif;
+}
+.tab div:nth-child(2) p a {
+    text-decoration: none;
+    color: black;
+}
+.tab div:nth-child(3) {
+    flex: 2;
+    text-align: center;
+    background-color: white;
+    border: 0.5px solid #89bdd3;
+    font-family: 'Gabriela', serif;
+    color: black;
+}
 
