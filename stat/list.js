@@ -1,7 +1,7 @@
 
     function myFunction(serchResponseJson) {
     const responseArray = JSON.parse(serchResponseJson);
-    let table;  
+    let table = "";
     for (let i = 0; i < responseArray.length; i++) { 
     table +=
      `<div id="tab">
@@ -16,7 +16,7 @@
            </div>           
        </div>`
   }
-  document.getElementById("tab").innerHTML = table;
+  document.getElementById("table").innerHTML = table;
 }
   
 function displayResult() {

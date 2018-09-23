@@ -6,7 +6,7 @@
     <!--<link rel="stylesheet" href="css/style.css">-->
         <style>
         body{
-            background-color: #9ad3de;
+            background-image: url("background.jpg");
             margin: 0;
             padding: 0;
         }
@@ -22,13 +22,13 @@
             margin: 25px;
         }
 
-        .search{
+        #search{
             background-color: #c9c9c9;
             border: 3px solid #89bdd3;
             border-radius: 25px;
             padding: 30px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             width: 900px;
@@ -54,53 +54,79 @@
             border-color: #89bdd3;
             border-radius: 15px;
         }
-        #tab{
+        #table{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .tab {
             display: flex;
             margin: 0 25px;
-
+        }
+        .tab div {
+            min-height: 1.6em;
+            width: 50%;  /* 50 * 3 = 150% (содержимое flex-контейнера в 1,5 раза больше) */
 
         }
-        #tab > div{
-            line-height: 15px;
+        .tab div:nth-child(1) {
+            flex: 0 0 auto;
+            text-align: left;
+            padding-left: 10px;
             background-color: #e3e3e3;
-            text-align: center;
             border: 0.5px solid #89bdd3;
-        }
 
-    </style>
+        }
+        .tab div:nth-child(2) {
+            flex: 0 5 auto;
+            text-align: center;
+            background-color: #e3e3e3;
+            border: 0.5px solid #89bdd3;
+            max-width: 100px;
+}
+.tab div:nth-child(3) {
+    flex: 0 5 auto;
+    text-align: center;
+    background-color: #e3e3e3;
+    border: 0.5px solid #89bdd3;
+    max-width: 100px;
+
+}
+
+</style>
 </head>
 <body>
 
 <div class="page">
     <div class="header">
         <div class="search">
-            <form id="search">
+            <div id="search">
+            <form>
                 <input id = "search-inp"  name="s" placeholder="Пошук на OLX" type="text" >
                 <input id ="pages-inp" type="number">
-
             </form>
             <button id = "searchButton">Знайти</button>
-        </div>
+            </div>
+            </div>
     </div>
     <script>
         function myFunction(serchResponseJson) {
         const responseArray = JSON.parse(serchResponseJson);
-        let table;
+        let table = "";
         for (let i = 0; i < responseArray.length; i++) {
             table +=
-                `<div id="tab">
-           <div style="flex-grow: 10 ; text-align: left; padding-left: 10px" class="section">
-           <p>${responsArray[i].name}</p>
+                `<div class="tab">
+           <div class="section">
+           <p>${responseArray[i].name}</p>
             </div>
-           <div style="flex-grow: 1" class="section">
-           <a href="${responseArray[i].url}">Лінк</a>
+           <div class="section">
+           <a href="${responseArray[i].url} target="_blank"">Лінк</a>
            </div>
-           <div style="flex-grow: 1" class="section">
+           <div class="section">
             <p>${responseArray[i].views}</p>
            </div>
        </div>`
         }
-        document.getElementById("tab").innerHTML = table;
+        document.getElementById("table").innerHTML = table;
     }
 
     function displayResult() {
@@ -119,16 +145,18 @@
     document.getElementById("searchButton").onclick = displayResult;
     </script>
     <main>
-        <div id="tab">
-            <div style="flex-grow: 10 ; text-align: left; padding-left: 10px" class="section">
-                <p>${responsArray[i].name}</p>
-            </div>
-            <div style="flex-grow: 1" class="section">
-                <a href=${responseArray[i].url}>Лінк</a>
-            </div>
-            <div style="flex-grow: 1" class="section">
-                <p>${responseArray[i].views}</p>
-            </div>
+        <div id="table">
+        <!--<div id="tab">-->
+            <!--<div style="flex-grow: 10 ; text-align: left; padding-left: 10px" class="section">-->
+                <!--<p>${responsArray[i].name}</p>-->
+            <!--</div>-->
+            <!--<div style="flex-grow: 1" class="section">-->
+                <!--<a href=${responseArray[i].url}>Лінк</a>-->
+            <!--</div>-->
+            <!--<div style="flex-grow: 1" class="section">-->
+                <!--<p>${responseArray[i].views}</p>-->
+            <!--</div>-->
+        <!--</div>-->
         </div>
     </main>
 </div>
