@@ -16,7 +16,9 @@ function myFunction(serchResponseJson) {
            </div>
        </div>`
     }
-    document.getElementById("table").innerHTML = table;
+        document.getElementById("table").innerHTML = table;
+        document.getElementById("preloader").style.visibility = "hidden"
+
 }
 
 function displayResult() {
@@ -32,4 +34,18 @@ function displayResult() {
     xmlhttp.open("GET", "/api?uri= " + searchValue + "&pages=" + pagesValue, true);
     xmlhttp.send();
 }
-document.getElementById("searchButton").onclick = displayResult;
+
+const preloaderVisible = () => document.getElementById("preloader").style.visibility="visible";
+
+let searchButton = document.getElementById("searchButton");
+
+searchButton.addEventListener('click',preloaderVisible);
+searchButton.addEventListener('click',displayResult);
+
+
+
+
+
+
+
+

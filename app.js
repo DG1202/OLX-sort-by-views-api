@@ -7,7 +7,7 @@ const request = require('request-promise');
 const fs = require('fs');
 
 const app = express();
-
+app.use(express.static('stat'))
 
 
 const options = {
