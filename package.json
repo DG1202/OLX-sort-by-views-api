@@ -1,0 +1,25 @@
+{
+  "name": "rozetka-sort-by-views-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MishaHnatyshyn/rozetka-sort-by-views-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MishaHnatyshyn/rozetka-sort-by-views-api/issues"
+  },
+  "homepage": "https://github.com/MishaHnatyshyn/rozetka-sort-by-views-api#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
